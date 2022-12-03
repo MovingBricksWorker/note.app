@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CoderWGB's Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <script src="//cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+
+  <!-- mermaid画图 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+  <!-- React渲染支持 -->
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <script src="//unpkg.com/docsify-demo-box-react/dist/docsify-demo-box-react.min.js"></script>
+
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    //mermaid初始化
+    var mermaidNum = 0;
+    mermaid.initialize({ startOnLoad: false });
+    //react渲染demo参数
+    var ReactJsResources = '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react.js"></scr' + 'ipt>\n' +
+      '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react-dom.js"></scr' + 'ipt>'
+    var cssResources = '@import url("//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");'
+    var bootCode = 'var globalVariable = "CoderWGB"'
+    var globalVariable = "CoderWGB"
+
+    window.$docsify = {
+      name: '<p>CoderWGB\'s Blog</p>',
+      repo: 'https://github.com/MovingBricksWorker/note.app',
+      loadNavbar: true,//定制导航栏 
+      loadSidebar: true,
+      alias: {
+        "/.*/_sidebar.md": "/_sidebar.md"
+      },
+      auto2top: true,//回到顶部
+      coverpage: true, //封面
+      onlyCover: true,
+      topMargin: 60,
+      // themeColor: "#fb7299",//#00AEEC; 主题颜色
+      plugins: [
+        DemoBoxReact.create(ReactJsResources, cssResources, bootCode),
+      ],
+      search: 'auto',
+      search: { //配置搜索栏
+        paths: "auto",
+        placeholder: "搜索",
+        noData: "找不到结果",
+        depth: 2,
+        maxAge: 86400000,
+      },
+      notFoundPage: {
+        '/': '_404.md'
+      },
+      executeScript: true,
+      maxLevel: 6,
+      footer: {
+        copy: 'Stay hungry, stay foolish. Talk is cheap, show me the code. —— <a href="https://www.cnblogs.com/wgb1234/" target="_blank">CoderWGB</a><br/><br/>',
+        pre: '<hr/>',
+        style: 'text-align: left;',
+      },//添加页脚
+      count: {
+        countable: true,
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese',
+        position: "bottom",
+      },
+      tabs: {
+        persist: true,      // default
+        sync: true,      // default
+        theme: 'classic', // default
+        tabComments: true,      // default
+        tabHeadings: true       // default
+      },
+      formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
+      formatUpdated: function (time) {
+        // ...
+        return time;
+      },
+      pagination: {
+        previousText: '上一篇',
+        nextText: {
+          '/': '下一篇'
+        },
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      markdown: {
+        renderer: {
+          code: function (code, lang) {
+            if (lang === "mermaid") {
+              return (
+                '<div class="mermaid">' + mermaid.render('mermaid-svg-' + mermaidNum++, code) + "</div>"
+              );
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- 搜索 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 执行脚本 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+  <!-- 查看大图 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- 代码复制 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!-- tab分栏 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <!-- 分页 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 侧边栏 -->
+  <script src="./sidebar.js"></script>
+  <!-- 语法高亮支持 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-objectivec.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-swift.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-dart.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-ruby.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-jsx.min.js"></script>
+
+</body>
+
+<!-- 实现离线化 -->
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('pwa.js')
+  }
+</script>
+
+</html>
