@@ -99,7 +99,6 @@ Hello `world`
   </style>
    
  <div id="app">
- {{globalVariable}}
     <div style="display: flex;">
       <div class="select_bg">
         <select name="device" id="device" @change="selectDevice">
@@ -133,7 +132,6 @@ Hello `world`
       el: '#app',
       data() {
         return {
-            globalVariable,
           name: '',
           sys:'iOS',
           identifier: '',

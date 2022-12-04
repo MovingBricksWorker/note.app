@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3基础动画之Animation</title>
+
+    <style type="text/css">
+        .box {
+            background: cadetblue;
+            width: 100px;
+            height: 100px;
+            margin: 100px;
+            /* 绑定动画的名字 时长 动画时间函数 延时执行 n次 /infinite 无限次 
+        方向( normal正常|alternate轮流反向) 填充方式(forwards停到最后) */
+            animation: mymove 1.5s ease 1s 3 alternate;
+        }
+        
+        @keyframes mymove {
+            100% {
+                transform: translateX(200px);
+            }
+        }
+        
+        .box2 {
+            background: orange;
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            border-radius: 50%;
+            animation: jump 500ms ease-in-out infinite alternate-reverse;
+        }
+        
+        @keyframes jump {
+            /* 0% {
+                transform: translateY(10px);
+            }
+            20% {
+                transform: translateY(30px);
+            }
+            40% {
+                transform: translateY(50px);
+            }
+            60% {
+                transform: translateY(90px);
+            }
+            80% {
+                transform: translateY(140px);
+            } */
+            100% {
+                transform: translateY(200px);
+            }
+        }
+        
+        .box3 {
+            margin-left: 200px;
+            width: 200px;
+            height: 200px;
+            background: url(./img/zhuanquan.png) no-repeat;
+            border-radius: 50%;
+            animation: round 0.25s steps(30) infinite;
+        }
+        
+        @keyframes round {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+    </div>
+
+    <div class="box2">
+    </div>
+
+    <div class="box3">
+    </div>
+
+
+</body>
+
+
+<script>
+    //监听动画的开始与结束
+    let runstart = () => {
+        console.log("runstart")
+    }
+    let runend = () => {
+        console.log("runend")
+    }
+
+    let runiteration = () => {
+        console.log('runiteration')
+    }
+    let $box = document.querySelector('.box')
+    $box.addEventListener('animationstart', runstart) //动画开始
+    $box.addEventListener('animationiteration', runiteration) //动画过程中
+    $box.addEventListener('animationend', runend) //动画结束
+</script>
+
+</html>

@@ -11,15 +11,15 @@
   <script src="//cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 
   <!-- mermaid画图 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
-  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> -->
 
   <!-- React渲染支持 -->
-  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <!-- <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
   <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <script src="//unpkg.com/docsify-demo-box-react/dist/docsify-demo-box-react.min.js"></script>
+  <script src="//unpkg.com/docsify-demo-box-react/dist/docsify-demo-box-react.min.js"></script> -->
 
 </head>
 
@@ -27,14 +27,15 @@
   <div id="app"></div>
   <script>
     //mermaid初始化
-    var mermaidNum = 0;
-    mermaid.initialize({ startOnLoad: false });
+    // var mermaidNum = 0;
+    // mermaid.initialize({ startOnLoad: false });
+
     //react渲染demo参数
-    var ReactJsResources = '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react.js"></scr' + 'ipt>\n' +
-      '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react-dom.js"></scr' + 'ipt>'
-    var cssResources = '@import url("//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");'
-    var bootCode = 'var globalVariable = "CoderWGB"'
-    var globalVariable = "CoderWGB"
+    // var ReactJsResources = '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react.js"></scr' + 'ipt>\n' +
+    //   '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react-dom.js"></scr' + 'ipt>'
+    // var cssResources = '@import url("//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");'
+    // var bootCode = 'var globalVariable = "CoderWGB"'
+    // var globalVariable = "CoderWGB"
 
     window.$docsify = {
       name: '<p>CoderWGB\'s Blog</p>',
@@ -48,10 +49,10 @@
       coverpage: true, //封面
       onlyCover: true,
       topMargin: 60,
-      // themeColor: "#fb7299",//#00AEEC; 主题颜色
-      plugins: [
-        DemoBoxReact.create(ReactJsResources, cssResources, bootCode),
-      ],
+      themeColor: '#00AEEC',
+      // plugins: [
+      //    DemoBoxReact.create(ReactJsResources, cssResources, bootCode),
+      // ],
       search: 'auto',
       search: { //配置搜索栏
         paths: "auto",
@@ -75,7 +76,7 @@
         fontsize: '0.9em',
         color: 'rgb(90,90,90)',
         language: 'chinese',
-        position: "bottom",
+        position: "top",
       },
       tabs: {
         persist: true,      // default
@@ -85,26 +86,22 @@
         tabHeadings: true       // default
       },
       formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
-      formatUpdated: function (time) {
-        // ...
-        return time;
-      },
-      pagination: {
-        previousText: '上一篇',
-        nextText: {
-          '/': '下一篇'
-        },
-        crossChapter: true,
-        crossChapterText: true,
-      },
+      // pagination: {
+      //   previousText: '上一篇',
+      //   nextText: {
+      //     '/': '下一篇'
+      //   },
+      //   crossChapter: true,
+      //   crossChapterText: true,
+      // },
       markdown: {
         renderer: {
           code: function (code, lang) {
-            if (lang === "mermaid") {
-              return (
-                '<div class="mermaid">' + mermaid.render('mermaid-svg-' + mermaidNum++, code) + "</div>"
-              );
-            }
+            // if (lang === "mermaid") {
+            //   return (
+            //     '<div class="mermaid">' + mermaid.render('mermaid-svg-' + mermaidNum++, code) + "</div>"
+            //   );
+            // }
             return this.origin.code.apply(this, arguments);
           }
         }
@@ -126,20 +123,14 @@
   <!-- tab分栏 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
   <!-- 分页 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script> -->
   <!-- 侧边栏 -->
   <script src="./sidebar.js"></script>
   <!-- 语法高亮支持 -->
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-objectivec.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-swift.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-dart.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-ruby.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-jsx.min.js"></script>
-
 </body>
 
 <!-- 实现离线化 -->
