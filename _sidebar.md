@@ -4,6 +4,7 @@
     * [渲染代码](插件示例/renderCode.md)
     * [mermaid例子](插件示例/mermaid例子.md)
     * [拓展的markdown语法](插件示例/Markdown.md)
+    * [console.log输出到页面上](插件示例/consoleLog.md)
 
 * 前端
     * [JavaScript基础知识总结](前端/JavaScript/多态和原型模式.md)
