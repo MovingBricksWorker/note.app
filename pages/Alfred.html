@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg {
+            display: hidden;
+            margin: 40px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgb(74, 73, 77);
+            max-width: 720px;
+            height: 100px;
+            background-color: rgb(74, 73, 77);
+            position: relative;
+        }
+        
+        .container {
+            height: 66px;
+        }
+        
+        #textInput {
+            padding: 10px;
+            position: absolute;
+            margin: 10px;
+            outline: 0;
+            height: 44px;
+            width: calc(100% - 126px);
+            font-size: 35px;
+            font-weight: bold;
+            color: #FFFFFF;
+            border-color: rgb(56, 55, 58);
+            border-radius: 10px;
+            background-color: rgb(56, 55, 58);
+        }
+        
+        #img {
+            top: 10px;
+            right: 15px;
+            position: absolute;
+            width: 66px;
+            height: 66px;
+            box-shadow: 5px 5px 5px rgb(74, 73, 77);
+        }
+        
+        #data-list {
+            margin-top: -30px;
+            max-width: 760px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .item {
+            background-color: rgb(74, 73, 77);
+            color: #fff;
+            margin: 1px;
+            padding: 15px;
+        }
+        
+        .item:first-child {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        
+        .item:last-child {
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg">
+        <div class="container">
+            <input id="textInput" oninput="inputOnChange()" placeholder="请输入英文字母或者数字" type="text" />
+            <img id="img" src="https://images.cnblogs.com/cnblogs_com/wgb1234/2204281/o_220816122031_alfredappicon.png" />
+        </div>
+    </div>
+    <div id="data-list">
+    </div>
+</body>
+
+<script>
+    const numArr = [
+        //数字🔢
+        0x1D71C,
+        0x1D7D8,
+        0x1D7E2,
+        0x1D7EC,
+        0x1D7F6
+    ];
+    //大写
+    const capArr = [
+        0x1D400,
+        0x1D434,
+        0x1D468,
+        0x1D49C,
+        0x1D4D0,
+        0x1D504,
+        0x1D538,
+        0x1D56C,
+        0x1D5A0,
+        0x1D5D4,
+        0x1D608,
+        0x1D63C,
+        0x1D670,
+        0x1D6A8,
+    ];
+    //小写
+    const lowerArr = [
+        0x1D41A,
+        0x1D44E,
+        0x1D482,
+        0x1D4B6,
+        0x1D4EA,
+        0x1D51E,
+        0x1D552,
+        0x1D586,
+        0x1D5BA,
+        0x1D5EE,
+        0x1D622,
+        0x1D656,
+        0x1D68A,
+        0x1D6FC
+    ];
+
+    function getMessageItem(startIndex, inputChar) {
+        var newMessage = '';
+        var codePoint = inputChar.charCodeAt(0);
+        // A - Z 转换
+        if (codePoint >= 65 && codePoint <= 90) {
+            codePoint = startIndex + (codePoint - 65);
+            newMessage = String.fromCodePoint(codePoint);
+        }
+        // a - z 转换
+        else if (codePoint >= 97 && codePoint <= 122) {
+            codePoint = startIndex + (codePoint - 97);
+            newMessage = String.fromCodePoint(codePoint);
+        } else {
+            newMessage = String.fromCodePoint(codePoint);
+        }
+        // 0 - 9 转换
+        if (numArr.includes(startIndex)) {
+            if (codePoint >= 48 && codePoint <= 57) {
+                codePoint = startIndex + (codePoint - 48);
+                newMessage = String.fromCodePoint(codePoint);
+            }
+        }
+        return newMessage
+    }
+
+    function parseInputText(inputText) {
+        var data = [];
+        for (let index = 0; index < capArr.length; index++) {
+            const capValue = capArr[index];
+            const lowerValue = lowerArr[index];
+            const numValue = numArr[(index + 1) % numArr.length];
+            var item = '';
+            for (let _char of inputText) {
+                const codePoint = _char.charCodeAt(0);
+                // A - Z
+                if (codePoint >= 65 && codePoint <= 90) {
+                    item += getMessageItem(capValue, _char)
+                }
+                // a - z 
+                else if (codePoint >= 97 && codePoint <= 122) {
+                    item += getMessageItem(lowerValue, _char)
+                } else {
+                    if (codePoint >= 48 && codePoint <= 57) {
+                        item += getMessageItem(numValue, _char)
+                    } else {
+                        item += _char;
+                    }
+                }
+            }
+            data.push(item);
+        }
+        const result = data.map(function(item) {
+            return {
+                title: item,
+                arg: item
+            }
+        });
+
+        return result;
+    }
+
+    function inputOnChange() {
+        const input = document.getElementById('textInput')
+        const items = parseInputText(input.value)
+        if (input.value.length > 0) {
+            buildList(items)
+        } else {
+            document.getElementById('data-list').innerHTML = '';
+        }
+    }
+
+
+    function copyToClipboard(content) {
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(content).then(() => {
+                alert(content + '  拷贝成功');
+            });
+        }
+    }
+
+    function buildList(data) {
+        var liTags = "";
+        for (var i = 0; i < data.length; i++) {
+            const item = data[i];
+            liTags += `<li class="item" id="item${i}">&nbsp;&nbsp;  ${item.title} </li>`
+        }
+        var listBg = document.getElementById('data-list');
+        listBg.innerHTML = `
+        <ol>
+           ${liTags}
+        </ol>
+        `
+        for (var i = 0; i < data.length; i++) {
+            const li = document.getElementById(`item${i}`);
+            li.onclick = function() {
+                copyToClipboard(li.innerText);
+            };
+        }
+    }
+</script>
+
+</html>

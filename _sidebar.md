@@ -9,7 +9,8 @@
 * 前端
     * [JavaScript基础知识总结](前端/JavaScript/多态和原型模式.md)
     * [JavaScript的原型继承](前端/JavaScript/JavaScript的原型继承.md)
-    
+    * [CSS去除浮动的方法总结](前端/CSS/2018-05-17去除浮动的方法总结.md)
+    * [CSS学习笔记整理](前端/CSS/CSS学习笔记整理.md)
    
 * Mac技巧
     * [获取MacApp的图标](Mac技巧/获取MacApp的图标.md)
@@ -28,10 +29,13 @@
     * [Mac端sed命令使用](Bash/Mac端sed命令使用.md)
     * [cp和mv的简单使用](Bash/cp和mv的简单使用.md)
     * [applescript的一些调用](Bash/applescript的一些调用.md)
+    * [上传IPA到蒲公英](Bash/上传IPA到蒲公英.md)
     
 
-<!-- * Python
-    * [虚位以待](#) -->
+* Python 
+    * [easyGUI](Python/easyGUI.md)
+    * [视频拆帧组帧调用记录](Python/视频拆帧组帧调用记录.md)
+    * [本地mock调试接口](Python/本地mock调试接口.md) 
   
 
 * 工作流
@@ -47,3 +51,18 @@
     * [Flutter创建iOS的platformChannel](Flutter/开发总结/Flutter创建iOS的platformChannel.md)
     * [Flutter踩坑合集](Flutter/开发总结/Flutter踩坑合集.md)
     * [Flutter环境搭建Tips](Flutter/开发总结/Flutter环境搭建Tips.md)
+
+* Rust从入门到放弃  
+    * [Rust代码学习片段](Rust/Rust代码片段.md)
+    * [异常记录📝](Rust/异常记录📝.md)
+
+* 面试题
+    * [一些iOS面试题](面试题/README.md)
+    * [iOS面试总结](面试题/iOS面试总结.md)
+    * [2020年10月15日面试总结](面试题/2020年10月15日面试总结.md)
+    * [Runtime底层原理灵魂拷问](面试题/Runtime底层原理灵魂拷问.md)
+
+
+* 占位
+  * [虚位以待](#)
+  * [虚位以待](#)
