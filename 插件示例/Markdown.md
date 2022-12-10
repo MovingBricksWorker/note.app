@@ -103,6 +103,26 @@ html 标签中的 Markdown 混合使用
 [filename](../_404.md ':include')
 
 
+### 图片处理
+`img`标签🏷加上`data-no-zoom`这个属性就不会默认查看大图
+```html
+<img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image" data-no-zoom>
+
+```
+<img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image" data-no-zoom>
+
+**不看大图**
+
+![](../pages/assets/alfredappicon.png  ":no-zoom")
+
+
+
+**要看大图**
+
+![](../pages/assets/alfredappicon.png '图片')
+
+
+
 
 > [!NOTE]
 > An alert of type 'note' using global style 'callout'.
