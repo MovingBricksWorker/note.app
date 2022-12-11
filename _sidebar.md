@@ -21,6 +21,10 @@
         * [获取MacApp的图标](Mac技巧/获取MacApp的图标.md)
         * [Xcode快捷键操作](Mac技巧/Xcode快捷键操作.md)
         * [IPA分发策略](Mac技巧/IPA分发策略.md)
+        * [Mac命令行入参获取](Mac技巧/Mac命令行入参获取.md)
+        * [关于AppleScript的一些应用总结](Mac技巧/关于AppleScript的一些应用总结.md)
+        * [为Mac自带的AppleScript脚本编辑器增加代码注释快捷键](Mac技巧/为Mac自带的AppleScript脚本编辑器增加代码注释快捷键.md)
+        * [关于AppleScript脚本语言的一些使用总结](Mac技巧/关于AppleScript脚本语言的一些使用总结.md)
 
     * Bash
         * [剪贴板的使用](Bash/剪贴板的使用.md)
@@ -54,7 +58,7 @@
         * [Flutter踩坑合集](Flutter/开发总结/Flutter踩坑合集.md)
         * [Flutter环境搭建Tips](Flutter/开发总结/Flutter环境搭建Tips.md)
 
-    * Rust  
+    * Rust 
         * [Rust代码学习片段](Rust/Rust代码片段.md)
         * [异常记录📝](Rust/异常记录📝.md)
 
@@ -67,13 +71,3 @@
         * [iOS面试总结](iOS/iOS面试总结.md)
         * [2020年10月15日面试总结](iOS/2020年10月15日面试总结.md)
         * [Runtime底层原理灵魂拷问](iOS/Runtime底层原理灵魂拷问.md)
-
-    * 占位
-        * 子目录
-            * 孙目录
-                * [虚位以待](#)
-                * [虚位以待](#)
-            * [虚位以待](#)
-            * [虚位以待](#)
-        * [虚位以待](#)
-        * [虚位以待](#)

@@ -8,6 +8,7 @@ http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
 - 每日早报
 https://cdn.jsdelivr.net/gh/WangGuibin/weather-action@master/logs/{yyyy-mm-dd}.txt
 
+
 <div id="app" style="text-align:left;white-space: pre-line;background-color:#00000033;padding:20px;border-radius:15px;color:#333;">
 {{log}}
 </div>

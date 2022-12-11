@@ -67,26 +67,7 @@
       ].join('');
 
       hook.beforeEach(function (html) {
-        if (window.location.href.includes('vercel.app')) {
-          // 部署在vercel不能正常显示更新时间
-          //https://github.com/pfeak/docsify-updated/issues/8
-          //网友给的解决方案 https://github.com/docsifyjs/docsify/issues/1157#issuecomment-890467244
-          date_url = 'https://api.github.com/repos/docsifyjs/docsify/commits?per_page=1&path=' + vm.config.basePath + vm.route.file;
-          fetch(date_url)
-            .then((response) => {
-              return response.json();
-            })
-            .then((commits) => {
-              var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-              document.getElementById('last-modified').textContent = "Last Modified: " + modified;
-            });
-          return (
-            html +
-            '\n\n----\n\n' +
-            '<span id="last-modified"></span>'
-          );
-        }
-        return html + '\n' + '>⏱最后更新于： {docsify-updated} ';
+        return html + '\n\n' + '⏱最后更新于： {docsify-updated} ';
       });
       hook.afterEach(function (html) {
         return html + footer;
@@ -177,7 +158,7 @@
       flexibleAlerts: {
         style: 'flat',//callout | flat
         note: {
-          label: "重点‼️"
+          label: "重点!!!"
         },
         tip: {
           label: "温馨提示💡"
