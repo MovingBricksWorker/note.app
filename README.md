@@ -26,8 +26,3 @@ https://note-app-git-main-coderwgb.vercel.app
 > https://docsify-this.net 可以拼上一些参数进行解析markdow页面 
 > https://docsify-this.net/?basePath=https://raw.githubusercontent.com/MovingBricksWorker/note.app/main/Bash/&homepage=git使用技巧总结.md&sidebar=true&maxLevel=2  虽然样式不咋好看,但是这个技术还挺niubility的
 
-## 索引
-
-[filename](../_sidebar.md ':include')
-
-
