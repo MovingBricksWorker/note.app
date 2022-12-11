@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
   <meta charset="UTF-8">
@@ -8,38 +8,37 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
+  <!-- vue支持 -->
+  <script src="./plugins/vue/vue2.js"></script>
+  <link rel="stylesheet" href="./plugins/vue/index.css">
+
   <!-- ElementUI库 -->
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <link rel="stylesheet" href="//unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="./plugins/ElementUI/index.css">
+  <script src="./plugins/ElementUI/index.js"></script>
 
   <!-- 侧边栏优化 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
+  <link rel="stylesheet" href="./plugins/sidebar/sidebar-folder.min.css" />
   <!-- mermaid画图 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
-  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <link rel="stylesheet" href="./plugins/mermaid/mermaid.min.css">
+  <script src="./plugins/mermaid/mermaid.min.js"></script>
 
-  <!-- vue支持 -->
-  <script src="//cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
-  <!-- ElementUI支持 -->
-  <script src="//unpkg.com/element-ui/lib/index.js"></script>
   <!-- React渲染支持 -->
-  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <!-- <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
   <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <script src="//unpkg.com/docsify-demo-box-react/dist/docsify-demo-box-react.min.js"></script>
+  <script src="//unpkg.com/docsify-demo-box-react/dist/docsify-demo-box-react.min.js"></script> -->
 
   <!-- 在github上编辑 -->
   <script src="./plugins/EditOnGithubPlugin.js"></script>
   <style>
     /* 导航栏固定 */
-    .app-nav {
+    /* .app-nav {
       position: fixed;
       right: 0px;
       text-align: right;
       z-index: 10;
       margin: 25px 60px 0px 0px;
-    }
+    } */
   </style>
 </head>
 
@@ -51,18 +50,18 @@
     mermaid.initialize({ startOnLoad: false });
 
     //react渲染demo参数
-    var ReactJsResources = '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react.js"></scr' + 'ipt>\n' +
-      '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react-dom.js"></scr' + 'ipt>'
-    var cssResources = '@import url("//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");'
-    var bootCode = 'var globalVariable = "CoderWGB"'
-    var globalVariable = "CoderWGB"
+    // var ReactJsResources = '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react.js"></scr' + 'ipt>\n' +
+    //   '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react-dom.js"></scr' + 'ipt>'
+    // var cssResources = '@import url("//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");'
+    // var bootCode = 'var globalVariable = "CoderWGB"'
+    // var globalVariable = "CoderWGB"
     //每个页面底部加上一些东西
     const footer = function (hook) {
       var footer = [
         '<hr/>',
         '<footer>',
         '<span><a href="https://github.com/WangGuibin">CoderWGB</a> &copy;2022.</span>',
-        '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+        '<span>本站由 <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
         '</footer>'
       ].join('');
 
@@ -79,25 +78,25 @@
       repo: 'https://github.com/MovingBricksWorker/note.app',
       loadNavbar: true,//定制导航栏 
       loadSidebar: true,
-      subMaxLevel: 2,
+      subMaxLevel: 3,
       sidebarDisplayLevel: 1,
       alias: {
         "/.*/_sidebar.md": "/_sidebar.md"
       },
       auto2top: true,//回到顶部
       coverpage: true, //封面
-      onlyCover: true,
+      onlyCover: false,
       topMargin: 60,
       themeColor: '#00AEEC',
       plugins: [
         footer,
         EditOnGithubPlugin.create('https://github.com/MovingBricksWorker/note.app/blob/main/'),
-        DemoBoxReact.create(ReactJsResources, cssResources, bootCode),
+        // DemoBoxReact.create(ReactJsResources, cssResources, bootCode),
       ],
-      // latex: {
-      //   inlineMath: [['$', '$'], ['\\(', '\\)']], // default
-      //   displayMath: [['$$', '$$']], // default
-      // },
+      latex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']], // default
+        displayMath: [['$$', '$$']], // default
+      },
       search: 'auto',
       search: { //配置搜索栏
         paths: "auto",
@@ -124,11 +123,11 @@
         position: "bottom",
       },
       tabs: {
-        persist: true,      // default
-        sync: true,      // default
-        theme: 'classic', // default
-        tabComments: true,      // default
-        tabHeadings: true       // default
+        persist: true,
+        sync: true,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
       },
       formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
       pagination: {
@@ -183,49 +182,51 @@
     }
   </script>
   <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="./plugins/docsify-v4.min.js"></script>
   <!-- 搜索 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="./plugins/docsify-search.min.js"></script>
   <!-- 执行脚本 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+  <script src="./plugins/docsify-external-script.min.js"></script>
   <!-- 查看大图 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="./plugins/zoom-image.min.js"></script>
   <!-- 代码复制 -->
-  <script src="https://unpkg.com/docsify-copy-code"></script>
+  <script src="./plugins/docsify-copy-code"></script>
   <!-- 字数统计 -->
-  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <script src="./plugins/countable.js"></script>
   <!-- tab分栏 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <script src="./plugins/docsify-tabsv1.min.js"></script>
   <!-- 分页 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="./plugins/docsify-pagination.min.js"></script>
   <!-- 语法高亮支持 -->
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markdown.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-swift.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-dart.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-jsx.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-objectivec.min.js"></script>
+  <script src="./plugins/prism/prism-applescript.min.js"></script>
+  <script src="./plugins/prism/prism-bash.min.js"></script>
+  <script src="./plugins/prism/prism-python.min.js"></script>
+  <script src="./plugins/prism/prism-ruby.min.js"></script>
+  <script src="./plugins/prism/prism-markdown.min.js"></script>
+  <script src="./plugins/prism/prism-swift.min.js"></script>
+  <script src="./plugins/prism/prism-dart.min.js"></script>
+  <script src="./plugins/prism/prism-rust.min.js"></script>
+  <script src="./plugins/prism/prism-json.min.js"></script>
+  <script src="./plugins/prism/prism-jsx.min.js"></script>
+  <script src="./plugins/prism/prism-c.min.js"></script>
+  <script src="./plugins/prism/prism-cpp.min.js"></script>
+  <script src="./plugins/prism/prism-objectivec.min.js"></script>
 
   <!-- Valine评论插件 -->
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  <script src="//unpkg.com/docsify-valine/dist/docsify-valine.min.js"></script>
-  <!-- LaTeX 数学公式
-  <script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script> -->
+  <script src='./plugins/Valine.min.js'></script>
+  <script src="./plugins/docsify-valine.min.js"></script>
+  <!-- LaTeX 数学公式 -->
+  <script src="./plugins/docsify-latex.min.js"></script>
   <!-- markdow图片添加说明文字 ![](src desc) 类似这个格式-->
-  <script src="https://unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script>
+  <script src="./plugins/docsify-image-caption.min.js"></script>
   <!-- 侧边栏 (还是目录树体验好一点 先注释了)-->
   <!-- <script src="./plugins/sidebar.js"></script> -->
   <!-- 侧边栏优化(目录树结构) -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <script src="./plugins/sidebar/docsify-sidebar-collapse.min.js"></script>
   <!-- 重点提示 -->
-  <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+  <script src="./plugins/docsify-plugin-flexible-alerts.min.js"></script>
   <!-- 阅读进度 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
+  <script src="./plugins/progress.min.js"></script>
 
 
 </body>
