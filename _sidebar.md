@@ -13,9 +13,14 @@
         * JavaScript
             * [JavaScript基础知识总结](前端/JavaScript/多态和原型模式.md)
             * [JavaScript的原型继承](前端/JavaScript/JavaScript的原型继承.md)
+            * [JS对象的深拷贝](前端/JavaScript/JS对象的深拷贝.md)
         * CSS
             * [CSS去除浮动的方法总结](前端/CSS/2018-05-17去除浮动的方法总结.md)
             * [CSS学习笔记整理](前端/CSS/CSS学习笔记整理.md)
+        * Vue
+            * [实现双向绑定的坑](前端/Vue/实现双向绑定的坑.md)
+            * [echarts相关知识点](前端/Vue/echarts相关知识点.md)
+            * [父组件调用子组件方法](前端/Vue/父组件调用子组件方法.md)
     
     * Mac
         * [获取MacApp的图标](Mac技巧/获取MacApp的图标.md)
@@ -25,6 +30,7 @@
         * [关于AppleScript的一些应用总结](Mac技巧/关于AppleScript的一些应用总结.md)
         * [为Mac自带的AppleScript脚本编辑器增加代码注释快捷键](Mac技巧/为Mac自带的AppleScript脚本编辑器增加代码注释快捷键.md)
         * [关于AppleScript脚本语言的一些使用总结](Mac技巧/关于AppleScript脚本语言的一些使用总结.md)
+        * [同步备份Alfred的workflows](Mac技巧/同步备份Alfred的workflows.md)
 
     * Bash
         * [剪贴板的使用](Bash/剪贴板的使用.md)
