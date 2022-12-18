@@ -2,11 +2,27 @@
 https://static001.geekbang.org/univer/classes/ios_dev/lession/45/toutiao.json
 
 - mp4测试链接🔗
-
 http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
 
 - 每日早报
 https://cdn.jsdelivr.net/gh/WangGuibin/weather-action@master/logs/{yyyy-mm-dd}.txt
+
+- [天气接口 · 免费API接口 · 看云](https://www.kancloud.cn/lizhixuan/free_api/1159533)
+
+- bilibili
+https://github.com/SocialSisterYi/bilibili-API-collect
+
+- 网抑云
+https://github.com/Binaryify/NeteaseCloudMusicApi
+
+- 自定义mock
+https://designer.mocky.io/design
+
+- [数学乐](https://www.shuxuele.com/index.html)
+
+- [苹果软件站-美区ID共享](https://www.iios.me/login)
+- [企业证书](https://apporanges.lanzoui.com/b0cfcmzwj)
+- [轻松签](https://esign.yyyue.xyz/)
 
 
 <div id="app" style="text-align:left;white-space: pre-line;background-color:#00000033;padding:20px;border-radius:15px;color:#333;">

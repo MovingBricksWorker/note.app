@@ -10,6 +10,7 @@
         * [自定义banner组件](插件示例/自定义banner组件.md)
 
     * Front-end
+        * [前端技术相关站点](资源收集/前端技术相关站点.md)
         * JavaScript
             * [JavaScript基础知识总结](前端/JavaScript/多态和原型模式.md)
             * [JavaScript的原型继承](前端/JavaScript/JavaScript的原型继承.md)
@@ -45,6 +46,7 @@
         
 
     * Python 
+        * [python相关博客文章](Python/README.md)
         * [easyGUI](Python/easyGUI.md)
         * [视频拆帧组帧调用记录](Python/视频拆帧组帧调用记录.md)
         * [本地mock调试接口](Python/本地mock调试接口.md) 
@@ -65,15 +67,21 @@
         * [Flutter环境搭建Tips](Flutter/开发总结/Flutter环境搭建Tips.md)
 
     * Rust 
+        * [rust学习教程](Rust/README.md)
         * [Rust代码学习片段](Rust/Rust代码片段.md)
         * [异常记录📝](Rust/异常记录📝.md)
 
     * iOS
-        * Xcode
-            * [获取IPA白包](iOS/Xcode/Xcode获取IPA白包.md)
-            * [关于Xcode12静态库打包的一些心得](iOS/Xcode/关于Xcode12静态库打包的一些心得.md)
-            * [获取当前iOS项目的环境变量](iOS/Xcode/获取当前iOS项目的环境变量.md)
+        * iOS开发
+            * [iOS开发相关博客](资源收集/iOS开发相关博客.md)
+            * [获取IPA白包](iOS/iOS开发/Xcode获取IPA白包.md)
+            * [关于Xcode12静态库打包的一些心得](iOS/iOS开发/关于Xcode12静态库打包的一些心得.md)
+            * [获取当前iOS项目的环境变量](iOS/iOS开发/获取当前iOS项目的环境变量.md)
+            * [iOS桌面书签解决方案](iOS/iOS开发/iOS桌面书签解决方案.md)
         * [一些iOS面试题](iOS/README.md)
         * [iOS面试总结](iOS/iOS面试总结.md)
         * [2020年10月15日面试总结](iOS/2020年10月15日面试总结.md)
         * [Runtime底层原理灵魂拷问](iOS/Runtime底层原理灵魂拷问.md)
+    
+    * LeetCode
+        * [网站文章或repo仓库](资源收集/算法相关.md)

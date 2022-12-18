@@ -17,3 +17,5 @@ iOS面试题收集,用于准备面试,复习面试题~ 面试题都是套路
 - iOS面试题套娃合集 https://github.com/iOShuyang/Book-Recommended-Interview 
 
 - iOS Interviews,DevNotes https://github.com/DevDragonLi/iOSInterviewsAndDevNotes
+
+- [LGBamboo/iOS-Advanced: 整理-全网iOS开发面试题，记录文档，方便个人观看](https://github.com/LGBamboo/iOS-Advanced)
