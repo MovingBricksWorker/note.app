@@ -3,6 +3,7 @@
 
 记录一些东西,仅此而已
 
+> [!ATTENTION]
 > 由于采用类似目录结构的侧边栏导航 [𝙝𝙩𝙩𝙥𝙨://𝙜𝙞𝙩𝙝𝙪𝙗.𝙘𝙤𝙢/𝙞𝙋𝙚𝙣𝙜𝟨/𝙙𝙤𝙘𝙨𝙞𝙛𝙮-𝙨𝙞𝙙𝙚𝙗𝙖𝙧-𝙘𝙤𝙡𝙡𝙖𝙥𝙨𝙚](https://github.com/iPeng6/docsify-sidebar-collapse)
 > 还有些许问题未被解决,PC端Chrome浏览器才能好使
 

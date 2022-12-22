@@ -18,10 +18,17 @@
         * CSS
             * [CSS去除浮动的方法总结](前端/CSS/2018-05-17去除浮动的方法总结.md)
             * [CSS学习笔记整理](前端/CSS/CSS学习笔记整理.md)
+            * [:before和:after伪元素的使用](前端/CSS/before和after伪元素的使用.md)
         * Vue
             * [实现双向绑定的坑](前端/Vue/实现双向绑定的坑.md)
             * [echarts相关知识点](前端/Vue/echarts相关知识点.md)
             * [父组件调用子组件方法](前端/Vue/父组件调用子组件方法.md)
+            * [ElementUI相关组件的踩坑记录](前端/Vue/ElementUI相关组件的踩坑记录.md)
+        * Node
+            * [搭建Node环境](前端/Node/搭建Node环境.md)
+            * [简单的express应用](前端/Node/简单的express应用.md)
+            * [学习使用外部模块](前端/Node/学习使用外部模块.md)
+            * [使用superagent与cheerio完成简单爬虫](前端/Node/使用superagent与cheerio完成简单爬虫.md)
     
     * Mac
         * [获取MacApp的图标](Mac技巧/获取MacApp的图标.md)
@@ -43,6 +50,8 @@
         * [cp和mv的简单使用](Bash/cp和mv的简单使用.md)
         * [applescript的一些调用](Bash/applescript的一些调用.md)
         * [上传IPA到蒲公英](Bash/上传IPA到蒲公英.md)
+        * [方便管理npm源的切换](Bash/方便管理npm源的切换.md)
+        * [Mac获取本机IP](Bash/获取本机IP.md)
         
 
     * Python 
@@ -53,6 +62,7 @@
     
 
     * Workflow
+        * [快捷指令集合](工作流/快捷指令集合.md)
         * [如何制作一个手机上的Github图床捷径workflow](工作流/如何制作一个手机上的Github图床捷径workflow.md)
         * [iOS开发如何给自己的App增加捷径自定义拓展](工作流/iOS开发如何给自己的App增加捷径自定义拓展.md)
         * [手把手打造一个图床工具](工作流/手把手打造一个图床工具.md)
@@ -78,6 +88,7 @@
             * [关于Xcode12静态库打包的一些心得](iOS/iOS开发/关于Xcode12静态库打包的一些心得.md)
             * [获取当前iOS项目的环境变量](iOS/iOS开发/获取当前iOS项目的环境变量.md)
             * [iOS桌面书签解决方案](iOS/iOS开发/iOS桌面书签解决方案.md)
+            * [webclicp桌面书签相关](iOS/iOS开发/webclicp桌面书签相关.md)
         * [一些iOS面试题](iOS/README.md)
         * [iOS面试总结](iOS/iOS面试总结.md)
         * [2020年10月15日面试总结](iOS/2020年10月15日面试总结.md)
@@ -85,3 +96,6 @@
     
     * LeetCode
         * [网站文章或repo仓库](资源收集/算法相关.md)
+
+    * 抗疫日记
+        * [抗疫日记](抗疫日记/README.md)
