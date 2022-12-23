@@ -3,6 +3,7 @@
         * [测试主题切换和局部脚本](插件示例/testTheme.md)
         * [Tabs](插件示例/tabs.md)
         * [渲染代码](插件示例/renderCode.md)
+        * [heti排版](插件示例/heti排版.md)
         * [mermaid例子](插件示例/mermaid例子.md)
         * [拓展的markdown语法](插件示例/Markdown.md)
         * [console.log输出到页面上](插件示例/consoleLog.md)

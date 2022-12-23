@@ -61,3 +61,58 @@ headerCellStyle ({ row, rowIndex}){
   margin-left: 10px;
 }
 ```
+
+
+## Dialog
+自定义弹窗
+需要用到.sync语法糖进行双向绑定
+```jsx
+<template>
+  <el-dialog
+    title="xxx"
+    append-to-body
+    :before-close="onClose"
+    :visible.sync="visible"
+    width="360px"
+    height="500"
+  >
+    <div class="content">
+      <div>
+        xxxxx一堆展示的东西或者表单啥的自定义都行~
+      </div>
+   
+      <div
+        class="save-btn"
+        @click="saveAction"
+      >
+        保存
+      </div>
+    </div>
+  </el-dialog>
+</template>
+
+<script>
+export default {
+  name:"MyDialog",
+  props:{
+    visible:{
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    onClose () {
+      this.$emit('update:visible', false);
+    },
+    saveAction (){
+      this.$emit('update:visible', false);
+    }
+  },
+};
+</script>
+
+//父组件调用 只需定义一个布尔值变量visible即可 
+<MyDialog
+ :visible.sync="dialogVisible"/>
+//visible默认false即不显示弹窗 点击按钮或者什么事件响应延时啥的 修改visible为true 弹窗就会显示  
+```

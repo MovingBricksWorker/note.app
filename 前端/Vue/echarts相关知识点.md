@@ -1,3 +1,21 @@
+
+echarts图监听窗口变化自动缩放
+```js
+ window.addEventListener('resize', () => {
+        if(this.myChart){
+          this.myChart.resize();
+        }
+      });
+      // window.onresize 有问题 有多个图只会监听到最后一个图的变化 还得是 window.addEventListener
+      // var _self = this;
+      // setTimeout(function (){
+      //   window.onresize = function (){
+      //     _self.myChart.resize();
+      //   };
+      // },200);
+```
+
+
 tooltips 每一项数据鼠标移动到该位置进行动态显示并自定义显示
 
 ```js

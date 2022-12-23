@@ -283,6 +283,16 @@ div2
 
 
 
+flex布局子视图中一个固定宽度另一个独占剩余宽度
 
-
-
+```css
+父视图: display:flex;
+子视图1  width: xxxpx;
+子视图2 flex:1;
+```
+flex居中显示文字
+```html
+<div style="display: flex;align-items: center;">
+	<span>文字文字文字</span>
+</div>
+```
