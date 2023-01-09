@@ -39,3 +39,7 @@ export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 
 ```
 
+
+##### node版本兼容
+
+因为node版本问题导致一些依赖安装失败 可以试试 `npm install`时 拼上`--legacy-peer-deps`参数可能会有意外之喜

@@ -116,3 +116,17 @@ export default {
  :visible.sync="dialogVisible"/>
 //visible默认false即不显示弹窗 点击按钮或者什么事件响应延时啥的 修改visible为true 弹窗就会显示  
 ```
+
+
+## Select
+
+##### El-select选择数据后不回显的问题
+
+`el-select`选择某个选项时,不回显的问题,实际上值已经变了,但是没有及时刷新出来,点击其他的`select`之后才会显示出来,这一类问题可以采用强制刷新的方式
+
+`$set`修改数据源进行驱动或者`this.$forceUpdate();`
+
+```js
+  //修改form里的layer字段 设置对应key 的 value即可
+  this.$set(this.form,'layer',val.layerName);
+```

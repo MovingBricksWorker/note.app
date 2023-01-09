@@ -58,7 +58,11 @@
       }
 
 })();
-
+console.log('hello JS');
+console.info('hello JS');
+console.error('hello JS');
+console.success('hello JS');
+console.warning('hello JS');
 </script>
 
 ```

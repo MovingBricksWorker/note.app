@@ -25,6 +25,7 @@
             * [echarts相关知识点](前端/Vue/echarts相关知识点.md)
             * [父组件调用子组件方法](前端/Vue/父组件调用子组件方法.md)
             * [ElementUI相关组件的踩坑记录](前端/Vue/ElementUI相关组件的踩坑记录.md)
+            * [导出Excel的功能](前端/Vue/导出Excel的功能.md)
         * Node
             * [搭建Node环境](前端/Node/搭建Node环境.md)
             * [简单的express应用](前端/Node/简单的express应用.md)
@@ -90,6 +91,7 @@
             * [获取当前iOS项目的环境变量](iOS/iOS开发/获取当前iOS项目的环境变量.md)
             * [iOS桌面书签解决方案](iOS/iOS开发/iOS桌面书签解决方案.md)
             * [webclicp桌面书签相关](iOS/iOS开发/webclicp桌面书签相关.md)
+            * [导出白包和linkmap以及dsym堆栈符号化](iOS/iOS开发/导出白包和linkmap以及dsym堆栈符号化.md)
         * [一些iOS面试题](iOS/README.md)
         * [iOS面试总结](iOS/iOS面试总结.md)
         * [2020年10月15日面试总结](iOS/2020年10月15日面试总结.md)
@@ -98,5 +100,5 @@
     * LeetCode
         * [网站文章或repo仓库](资源收集/算法相关.md)
 
-    * 抗疫日记
-        * [抗疫日记](抗疫日记/README.md)
+    <!-- * 抗疫日记
+        * [抗疫日记](抗疫日记/README.md) -->
