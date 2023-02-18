@@ -130,3 +130,12 @@ export default {
   //修改form里的layer字段 设置对应key 的 value即可
   this.$set(this.form,'layer',val.layerName);
 ```
+
+#####  $attrs 和 $listeners 二次封装暴露和接收所有属性和方法
+  
+   https://blog.csdn.net/vampire10086/article/details/113133339
+
+   中间层透传给下层组件  上层组件直接调用中间层组件方法和属性就如同直接调用下层组件一般 实现无缝调用
+   ```js
+   <MidView v-bind="$attrs" v-on="$listeners"> </MidView >
+   ```

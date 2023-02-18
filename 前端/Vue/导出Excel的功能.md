@@ -46,3 +46,28 @@ export function executeDownload (data, fileName) {
 }
 ```
 
+pdf文件预览和下载
+
+> 预览: 预览是浏览器自己的功能 只要是pdf文件的链接被识别为pdf文件格式就会加载预览界面,也可以使用iframe加载设置src为pdf的文件链接即可
+
+```js
+window.open(`http://xxxx/yuv.pdf`);
+```
+   
+> 下载: 需要把响应方式改为二进制blob
+
+```js
+   axios({
+     method: 'get',
+     url: `${process.env.VUE_APP_BASE_API}/yuv.pdf`, //测试一下 我放到public目录下了 不然跨域
+     responseType: 'blob',//这一步很关键
+   }).then((res) => {
+     // const filename = decodeURIComponent(res.headers['content-disposition'].match(/filename=(.*)/)[1]);
+     //模拟a标签点击下载
+     executeDownload(res.data,'YUV.pdf');
+   }).catch((err) => {
+   
+   });
+   
+```
+   

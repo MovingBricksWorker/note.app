@@ -20,12 +20,15 @@
             * [CSS去除浮动的方法总结](前端/CSS/2018-05-17去除浮动的方法总结.md)
             * [CSS学习笔记整理](前端/CSS/CSS学习笔记整理.md)
             * [:before和:after伪元素的使用](前端/CSS/before和after伪元素的使用.md)
+            * [一行固定三个的布局](前端/CSS/一行固定三个的布局.md)
         * Vue
             * [实现双向绑定的坑](前端/Vue/实现双向绑定的坑.md)
             * [echarts相关知识点](前端/Vue/echarts相关知识点.md)
             * [父组件调用子组件方法](前端/Vue/父组件调用子组件方法.md)
             * [ElementUI相关组件的踩坑记录](前端/Vue/ElementUI相关组件的踩坑记录.md)
             * [导出Excel的功能](前端/Vue/导出Excel的功能.md)
+            * [EventBus的使用](前端/Vue/EventBus的使用.md)
+            * [实现文本超长自动ToolTips](前端/Vue/实现文本超长自动ToolTips.md)
         * Node
             * [搭建Node环境](前端/Node/搭建Node环境.md)
             * [简单的express应用](前端/Node/简单的express应用.md)
