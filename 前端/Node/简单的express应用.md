@@ -31,3 +31,39 @@ app.listen(3001, function () {
 ```
 
 执行 `node app.js` ,打开浏览器输入`http://localhost:3001`回车就可以看到页面上显示着`Hello World`,这就是一个简单的webserver应用,一般被用于做前端的mock数据接口
+
+```js
+/*引入express*/
+const express = require('express');
+
+var data = require('./mockData').data;
+
+/*创建一个app实例*/
+const app = express();
+
+// 设置允许跨域访问该服务
+app.all('*', function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Headers', 'mytoken');
+  next();
+});
+
+/*配置路由
+ 访问 http://127.0.0.1:8081/user/userInfo 即可获取数据
+ req和res可以自己处理 根据传参返回什么样的数据
+*/
+app.get('/user/userInfo', (req, res) => {
+  res.send(data);
+});
+
+
+/*监听对象并收到错误回调*/
+app.listen(8081, (err) => {
+    if (!err){
+        console.log('http://127.0.0.1:8081 已启动~ ');
+    }
+});
+```

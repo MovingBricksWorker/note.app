@@ -46,6 +46,7 @@
         * [同步备份Alfred的workflows](Mac技巧/同步备份Alfred的workflows.md)
 
     * Bash
+        * [快速生成settingBundle展示的子文件](Bash/快速生成settingBundle展示的子文件.md)
         * [剪贴板的使用](Bash/剪贴板的使用.md)
         * [我折腾的shell笔记](Bash/我折腾的shell笔记.md)
         * [git使用技巧总结](Bash/git使用技巧总结.md)
