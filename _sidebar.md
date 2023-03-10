@@ -36,6 +36,7 @@
             * [使用superagent与cheerio完成简单爬虫](前端/Node/使用superagent与cheerio完成简单爬虫.md)
     
     * Mac
+        * [Mac客户端开发Tips](Mac技巧/Mac客户端开发Tips.md)
         * [获取MacApp的图标](Mac技巧/获取MacApp的图标.md)
         * [Xcode快捷键操作](Mac技巧/Xcode快捷键操作.md)
         * [IPA分发策略](Mac技巧/IPA分发策略.md)
@@ -61,6 +62,7 @@
         
 
     * Python 
+        * [PythonGUI打包Mac应用](Python/PythonGUI打包Mac应用.md)
         * [python相关博客文章](Python/README.md)
         * [easyGUI](Python/easyGUI.md)
         * [视频拆帧组帧调用记录](Python/视频拆帧组帧调用记录.md)
