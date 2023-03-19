@@ -6,6 +6,7 @@
   - [神奇字体在线小工具](https://www.cnblogs.com/wgb1234/p/16603478.html)
   - [URL编码和解码](https://www.cnblogs.com/wgb1234/p/15885876.html)
   - [Base64编码与解码](https://www.cnblogs.com/wgb1234/p/15861888.html)
+  - [云函数实现的ChatGPT](https://xtkxzp-chat.site.laf.dev)
   
 - 作品 && Demo
   - [仿Alfred输入框](pages/Alfred.html ':ignore')

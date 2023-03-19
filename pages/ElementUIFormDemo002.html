@@ -2,327 +2,284 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElementUI表格表单demo</title>
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <script src="https://unpkg.com/vue@2.5.17/dist/vue.min.js"></script>
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElementUI表格表单demo</title>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/vue@2.5.17/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 
 <body>
-    <style>
-    .title{
+  <style>
+    .title {
       font-family: PingFangSC-Medium;
       font-size: 14px;
       color: #333333;
       letter-spacing: 0;
       line-height: 26px;
       font-weight: bold;
-      border-bottom: 1px solid rgba(225,225,225,0.5);
+      border-bottom: 1px solid rgba(225, 225, 225, 0.5);
     }
-    .add-btn{
-        font-family: PingFangSC-Regular;
-        font-size: 14px;
-        color: #0279FF;
-        letter-spacing: 0;
-        text-align: center;
-        line-height: 20px;
-        font-weight: 400;
-      }
-    .table-bg{
-        border-radius: 4px;
-        border: 1px solid rgba(238,238,238,1);
-      }
-      .btn{
-          font-family: PingFangSC-Regular;
-          font-size: 14px;
-          color: #0279FF;
-          letter-spacing: 0;
-          line-height: 16px;
-          font-weight: 400;
-        }
-  
-      .nodata-bg{
-        height: 150px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-       .img{
-          width: 72px;
-          height: 50px;
-        }
-        .nodata-text{
-          margin-top: 14px;
-          font-family: PingFangSC-Regular;
-          font-size: 14px;
-          color: #606266;
-          letter-spacing: 0;
-          text-align: center;
-          font-weight: 400;
-        }
 
-      /deep/.el-range-editor.el-input__inner{
-      padding: 0 10px!important;
-      height: 36px;
-     }
+    .add-btn {
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #0279FF;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 20px;
+      font-weight: 400;
+    }
 
-    /deep/.el-input--suffix .el-input__inner{
+    .table-bg {
+      border-radius: 4px;
+      border: 1px solid rgba(238, 238, 238, 1);
+    }
+
+    .btn {
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #0279FF;
+      letter-spacing: 0;
+      line-height: 16px;
+      font-weight: 400;
+    }
+
+    .nodata-bg {
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .img {
+      width: 72px;
+      height: 50px;
+    }
+
+    .nodata-text {
+      margin-top: 14px;
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #606266;
+      letter-spacing: 0;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    /deep/.el-range-editor.el-input__inner {
+      padding: 0 10px !important;
       height: 36px;
     }
-  
-    .input-bg{
+
+    /deep/.el-input--suffix .el-input__inner {
+      height: 36px;
+    }
+
+    .input-bg {
       margin-bottom: 0px;
     }
-    .input-bg-isSet{
+
+    .input-bg-isSet {
       margin-bottom: 22px;
     }
-    </style>
-    <!-- run -->
-    <div id="app">
-         <div class="title">
-        领域实体：
-        <el-button
-          class="add-btn"
-          type="text"
-          @click="addAction"
-        >
-          新增实体
-        </el-button>
-      </div>
-      <div
-        v-if="tableData.length"
-        class="table-bg"
-      >
-        <el-form
-          ref="formRef"
-          :model="selectRow"
-          :rules="rules"
-          hide-required-asterisk
-        >
-          <el-table
-            v-loading="loading"
-            :data="tableData"
-            style="width: 100%"
-            :header-cell-style="headerCellStyle"
-          >
-            <!-- 实体名称 -->
-            <el-table-column
-              prop="domainEntityName"
-              label="实体名称"
-            >
-              <template slot-scope="scope">
-                <el-form-item
-                  :class="inputBgClass(scope.row.isSet)"
-                  prop="domainEntityName"
-                >
-                <el-input
-                    v-if="scope.row.isSet"
-                    v-model.trim="selectRow.domainEntityName"
-                    style="max-width: 300px"
-                    placeholder="请输入实体名称"
-                  />
-                <div v-if='!scope.row.isSet'> {{ scope.row.domainEntityName }} </div>
-                </el-form-item>
-              </template>
-            </el-table-column>
-            <!-- 操作人 -->
-            <el-table-column
-              prop="updateBy"
-              label="操作人"
-            >
-              <template slot-scope="scope">
-                <el-form-item :class="inputBgClass(scope.row.isSet)">
-                  <span>{{ scope.row.updateBy }}</span>
-                </el-form-item>
-              </template>
-            </el-table-column>
-            <!-- 保存时间 -->
-            <el-table-column
-              prop="updateTime"
-              label="保存时间"
-            >
-              <template slot-scope="scope">
-                <el-form-item :class="inputBgClass(scope.row.isSet)">
-                  <span>{{ scope.row.updateTime }}</span>
-                </el-form-item>
-              </template>
-            </el-table-column>
-  
-            <el-table-column
-              label="操作"
-              width="100"
-            >
-              <template slot-scope="scope">
-                <el-form-item :class="inputBgClass(scope.row.isSet)">
-                  <el-button
-                    type="text"
-                    class="btn"
-                    @click="editRowChange(scope.row,scope.$index,true)"
-                  >
-                    {{ scope.row.isSet?'保存':"修改" }}
-                  </el-button>
-                  <el-button
-                    v-if="!scope.row.isSet"
-                    type="text"
-                    class="btn"
-                    style="color: red;"
-                    @click="deleteRow(scope.row,scope.$index)"
-                  >
-                    删除
-                  </el-button>
-                  <el-button
-                    v-else
-                    type="text"
-                    class="btn"
-                    @click="editRowChange(scope.row,scope.$index,false)"
-                  >
-                    取消
-                  </el-button>
-                </el-form-item>
-              </template>
-            </el-table-column>
-          </el-table>
-        </el-form>
-      </div>
-      <div
-        v-else
-        class="nodata-bg"
-      >
-        <img class="img" :src="noDataImg">
-        <div class="nodata-text">暂无内容</div>
-      </div>  
+  </style>
+  <!-- run -->
+  <div id="app">
+    <div class="title">
+      领域实体：
+      <el-button class="add-btn" type="text" @click="addAction">
+        新增实体
+      </el-button>
     </div>
-    <script>
-         var generateId = {
-            _count: 1,
-            get(){return ((+new Date()) + "_" + (this._count++))}
-        };
-   new Vue({
-    el: "#app", 
-    props:{
-      entitys:{
-        type: Array,
-        default: ()=>[]
-      }
-    },
-    data () {
-      return {
-        noDataImg: '',
-        loading: false,
-        selectRow:{
-          domainEntityId: '',
-          domainEntityName: '',
-          updateBy: '',
-          updateTime: new Date().toLocaleString(),
-          isSet: false
-        },
-        currentIndex:0,
-        tableData: [],
-        rules: {
-          domainEntityName: [
-            {
-              required: true,
-              trigger: 'blur',
-              message: '请输入实体名称'
-            }
-          ]
+    <div v-if="tableData.length" class="table-bg">
+      <el-form ref="formRef" :model="selectRow" :rules="rules" hide-required-asterisk>
+        <el-table v-loading="loading" :data="tableData" style="width: 100%" :header-cell-style="headerCellStyle">
+          <!-- 实体名称 -->
+          <el-table-column prop="domainEntityName" label="实体名称">
+            <template slot-scope="scope">
+              <el-form-item :class="inputBgClass(scope.row.isSet)" prop="domainEntityName">
+                <el-input v-if="scope.row.isSet" v-model.trim="selectRow.domainEntityName" style="max-width: 300px"
+                  placeholder="请输入实体名称" />
+                <span v-else> {{ scope.row.domainEntityName }} </span>
+              </el-form-item>
+            </template>
+          </el-table-column>
+          <!-- 操作人 -->
+          <el-table-column prop="updateBy" label="操作人">
+            <template slot-scope="scope">
+              <el-form-item :class="inputBgClass(scope.row.isSet)">
+                <span>{{ scope.row.updateBy }}</span>
+              </el-form-item>
+            </template>
+          </el-table-column>
+          <!-- 保存时间 -->
+          <el-table-column prop="updateTime" label="保存时间">
+            <template slot-scope="scope">
+              <el-form-item :class="inputBgClass(scope.row.isSet)">
+                <span>{{ scope.row.updateTime }}</span>
+              </el-form-item>
+            </template>
+          </el-table-column>
+
+          <el-table-column label="操作" width="100">
+            <template slot-scope="scope">
+              <el-form-item :class="inputBgClass(scope.row.isSet)">
+                <el-button type="text" class="btn" @click="editRowChange(scope.row,scope.$index,true)">
+                  {{ scope.row.isSet?'保存':"修改" }}
+                </el-button>
+                <el-button v-if="!scope.row.isSet" type="text" class="btn" style="color: red;"
+                  @click="deleteRow(scope.row,scope.$index)">
+                  删除
+                </el-button>
+                <el-button v-else type="text" class="btn" @click="editRowChange(scope.row,scope.$index,false)">
+                  取消
+                </el-button>
+              </el-form-item>
+            </template>
+          </el-table-column>
+        </el-table>
+      </el-form>
+    </div>
+    <div v-else class="nodata-bg">
+      <img class="img" :src="noDataImg">
+      <div class="nodata-text">暂无内容</div>
+    </div>
+  </div>
+  <script>
+    var generateId = {
+      _count: 1,
+      get() { return ((+new Date()) + "_" + (this._count++)) }
+    };
+    new Vue({
+      el: "#app",
+      props: {
+        entitys: {
+          type: Array,
+          default: () => []
         }
-      };
-    },
-    watch:{
-      entitys:{
-        immediate: true,
-        handler (val){
-          this.tableData = [...val].map(item=> {
-            item.isSet = false;
-            return item;
-          });
-        }
-      }
-    },
-    methods: {
-      inputBgClass (isSet){
-        return isSet? 'input-bg-isSet':'input-bg';
       },
-      addAction (){
-        for (let item of this.tableData) {
-          if (item.isSet) return this.$message.warning('请先保存当前编辑项');
-        }
-        let obj = {
-          domainEntityId: generateId.get(),
-          domainEntityName: '',
-          updateBy: `本尊/001` ||'',
-          updateTime: new Date().toLocaleString(),
-          isSet: true
+      data() {
+        return {
+          noDataImg: '',
+          loading: false,
+          selectRow: {
+            domainEntityId: '',
+            domainEntityName: '',
+            updateBy: '',
+            updateTime: new Date().toLocaleString(),
+            isSet: false
+          },
+          currentIndex: 0,
+          tableData: [],
+          rules: {
+            domainEntityName: [
+              {
+                required: true,
+                trigger: 'blur',
+                message: '请输入实体名称'
+              }
+            ]
+          }
         };
-        this.tableData = [
+      },
+      watch: {
+        entitys: {
+          immediate: true,
+          handler(val) {
+            this.tableData = [...val].map(item => {
+              item.isSet = false;
+              return item;
+            });
+          }
+        }
+      },
+      methods: {
+        inputBgClass(isSet) {
+          return isSet ? 'input-bg-isSet' : 'input-bg';
+        },
+        addAction() {
+          for (let item of this.tableData) {
+            if (item.isSet) return this.$message.warning('请先保存当前编辑项');
+          }
+          let obj = {
+            domainEntityId: generateId.get(),
+            domainEntityName: '',
+            updateBy: `本尊/001` || '',
+            updateTime: new Date().toLocaleString(),
+            isSet: true
+          };
+          this.tableData = [
             obj,
             ...this.tableData
-    ];
-        this.selectRow = JSON.parse(JSON.stringify(obj));
-      },
-      deleteRow (row,index){
-       this.tableData.splice(index, 1);
-       this.$message({
-        type: 'success',
-        message: '删除成功!'
-        });
-      },
-      async editRowChange (row, index, isChange) {
-        for (let item of this.tableData) {
-          if (item.isSet && item.domainEntityId != row.domainEntityId) {
-            this.$message.warning('请先保存当前编辑项');
-            return false;
-          }
-        }
-  
-        //是否是取消操作
-        if (!isChange) {
-          if (!this.selectRow.domainEntityId.length){
-            //未保存数据直接清掉
-            this.tableData.splice(index, 1);
-          }
-          this.$refs.formRef.resetFields();
-          return row.isSet = !row.isSet;
-        }
-  
-        if (row.isSet) {
-          //点击保存提交数据
-          const validateResult = await this.$refs.formRef
-            .validate()
-            // eslint-disable-next-line no-unused-vars
-            .then(filed => {
-              return true;
-            })
-          // eslint-disable-next-line no-unused-vars
-            .catch(error => {
+          ];
+          this.selectRow = JSON.parse(JSON.stringify(obj));
+        },
+        deleteRow(row, index) {
+          this.tableData.splice(index, 1);
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        },
+        async editRowChange(row, index, isChange) {
+          for (let item of this.tableData) {
+            if (item.isSet && item.domainEntityId != row.domainEntityId) {
+              this.$message.warning('请先保存当前编辑项');
               return false;
+            }
+          }
+
+          //是否是取消操作
+          if (!isChange) {
+            if (!this.selectRow.domainEntityId.length) {
+              //未保存数据直接清掉
+              this.tableData.splice(index, 1);
+            }
+            this.$refs.formRef.resetFields();
+            return row.isSet = !row.isSet;
+          }
+
+          if (row.isSet) {
+            //点击保存提交数据
+            const validateResult = await this.$refs.formRef
+              .validate()
+              // eslint-disable-next-line no-unused-vars
+              .then(filed => {
+                return true;
+              })
+              // eslint-disable-next-line no-unused-vars
+              .catch(error => {
+                return false;
+              });
+            if (!validateResult) {
+              return;
+            }
+            let data = JSON.parse(JSON.stringify(this.selectRow));
+            for (let k in data) {
+              row[k] = data[k];
+            }
+            row.isSet = false;
+            this.tableData = [...this.tableData].map(item => {
+              item.isSet = false;
+              return item;
             });
-          if (!validateResult) {
-            return;
+            //this.save(row);
+            console.log(JSON.stringify(this.tableData, null, 2));
+          } else {
+            //点击修改进行编辑
+            this.selectRow = JSON.parse(JSON.stringify(row));
+            this.$set(this.tableData[index], 'isSet', true);
+            this.tableData = JSON.parse(JSON.stringify(this.tableData));
           }
-          let data = JSON.parse(JSON.stringify(this.selectRow));
-          for (let k in data) {
-            row[k] = data[k];
-          }
-          row.isSet = false;
-          //this.save(row);
-          console.log(JSON.stringify(this.tableData,null,2));
-        }else {
-          //点击修改进行编辑
-          this.selectRow = JSON.parse(JSON.stringify(row));
-          this.$set(this.tableData[index],'isSet',true);
-          this.tableData = JSON.parse(JSON.stringify(this.tableData));
-        }
-        this.$forceUpdate();
-      },
-     
-      headerCellStyle (){
-        return `
+          this.$forceUpdate();
+        },
+
+        headerCellStyle() {
+          return `
           background-color:#fafafa;
           font-family: PingFangSC-Medium;
           font-size: 14px;
@@ -331,10 +288,10 @@
           line-height: 16px;
           font-weight: 500;
         `;
+        },
       },
-    },
-  });
-    </script>
+    });
+  </script>
 </body>
 
 </html>

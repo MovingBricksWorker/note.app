@@ -34,6 +34,7 @@
             * [简单的express应用](前端/Node/简单的express应用.md)
             * [学习使用外部模块](前端/Node/学习使用外部模块.md)
             * [使用superagent与cheerio完成简单爬虫](前端/Node/使用superagent与cheerio完成简单爬虫.md)
+            * [使用云函数实现国内可用的ChatGPT](前端/Node/使用云函数实现国内可用的ChatGPT.md)
     
     * Mac
         * [Mac客户端开发Tips](Mac技巧/Mac客户端开发Tips.md)
@@ -91,8 +92,11 @@
 
     * iOS
         * iOS开发
+            * [iOS开发常见报错总结](iOS/iOS开发/iOS开发常见报错总结.md)
             * [iOS开发相关博客](资源收集/iOS开发相关博客.md)
             * [获取IPA白包](iOS/iOS开发/Xcode获取IPA白包.md)
+            * [自动化拉取同步PB生成OC文件](iOS/iOS开发/自动化拉取同步PB生成OC文件.md)
+            * [iOS开发SDK打包脚本](iOS/iOS开发/iOS开发SDK打包脚本.md)
             * [关于Xcode12静态库打包的一些心得](iOS/iOS开发/关于Xcode12静态库打包的一些心得.md)
             * [获取当前iOS项目的环境变量](iOS/iOS开发/获取当前iOS项目的环境变量.md)
             * [iOS桌面书签解决方案](iOS/iOS开发/iOS桌面书签解决方案.md)
