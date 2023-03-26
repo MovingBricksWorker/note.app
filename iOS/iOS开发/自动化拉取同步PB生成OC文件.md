@@ -114,3 +114,96 @@ pod install
 echo "PB一条龙🐲已搞定~ PodFile添加  pod 'LocalPBOCFiles',:path => './PBPods' 即可使用"
 
 ```
+
+进阶版本
+
+1. shell遍历目录
+
+```bash
+#!/bin/bash
+function getdir(){
+    for element in `ls $1`
+    do  
+        dir_or_file=$1"/"$element
+        if [ -d $dir_or_file ]
+        then 
+            getdir $dir_or_file
+        else
+            #打印当前文件路径 然后过滤出pb文件类型
+            pb=$(echo $dir_or_file | grep -e ".proto")
+            #添加到数组里 截掉 proto/ 第一段父级路径名
+            pbs=(${pbs[@]} ${pb#*/})
+        fi  
+    done
+}
+pbs=()
+root_dir="proto"
+getdir $root_dir
+#打印数组长度
+echo "PB文件数量为: "${#pbs[@]} 
+
+```
+
+2. 优化后的脚本如下: 
+
+
+```bash
+#! /bin/sh
+rm -rf protoOC
+mkdir protoOC
+
+#建立临时目录
+time=$(date +"%s")
+tmpPath="/tmp/"$time
+echo $tmpPath
+mkdir -p  $tmpPath
+#拉取代码 使用ssh 无需输入账号密码 
+git clone git@e.coding.net:jutongtech/akyuyin/aklive_protocol.git  $tmpPath
+#进入目录
+cd $tmpPath
+ls 
+mkdir objc_out
+
+cd proto
+
+#修复目录
+cp -Rf ./_client_pb ./client
+cp -Rf ../only_client/* ./client/
+mv ./mods/misc/mars.ext.proto1 ./mods/misc/mars.ext.proto
+mv ./mods/misc/rpcMessage.ext.proto1 ./mods/misc/rpcMessage.ext.proto
+mv ./mods/misc/goimPush.int.proto1  ./mods/misc/goimPush.int.proto
+
+#把pb文件都转移到proto目录下 然后遍历proto目录下的所有.proto文件
+function getdir(){
+    for element in `ls $1`
+    do  
+        dir_or_file=$1"/"$element
+        if [ -d $dir_or_file ]
+        then 
+            getdir $dir_or_file
+        else
+            pb=$(echo $dir_or_file | grep -e ".proto")
+            pbs=(${pbs[@]} ${pb#*/})
+        fi  
+    done
+}
+
+pbs=()
+cd ..
+root_dir="proto"
+getdir $root_dir
+echo "PB文件数量为: "${#pbs[@]} 
+cd proto
+
+#遍历生成OC文件
+for pbFile in ${pbs[*]}; do
+   protoc -I=. --objc_out=../objc_out  $pbFile
+done
+
+cd .. 
+# 输出看看先
+mv -f ./objc_out/*  ~/Desktop/alive-ios/protoOC
+
+echo "\033[1;32m 拉取完成 [DONE]\033[m"
+
+```

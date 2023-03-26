@@ -94,6 +94,7 @@
         * iOS开发
             * [iOS开发常见报错总结](iOS/iOS开发/iOS开发常见报错总结.md)
             * [iOS开发相关博客](资源收集/iOS开发相关博客.md)
+            * [Cocoapods使用记录](iOS/iOS开发/Cocoapods使用记录.md)
             * [获取IPA白包](iOS/iOS开发/Xcode获取IPA白包.md)
             * [自动化拉取同步PB生成OC文件](iOS/iOS开发/自动化拉取同步PB生成OC文件.md)
             * [iOS开发SDK打包脚本](iOS/iOS开发/iOS开发SDK打包脚本.md)

@@ -139,3 +139,19 @@ export default {
    ```js
    <MidView v-bind="$attrs" v-on="$listeners"> </MidView >
    ```
+
+#####  通过::before伪元素 el-input-number 输入框前面添加 ¥ 符号
+
+```css
+.add-yuan:before {
+    content: "¥";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    color: red;
+    background: white;
+    z-index: 100; /*不加这个看不见啊*/
+    transform: translateY(-50%);
+}
+```
+
