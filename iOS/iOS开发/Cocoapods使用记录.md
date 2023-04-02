@@ -91,6 +91,8 @@ end
 pod repo add MySpec https://xxx.com/CoderWGB/WGBSpec.git
 #   pod它会在~/cocoapods/repos目录下管理这个仓库
 pod repo push MySpec WGBCustomAlertPopupView.podspec  --allow-warnings
+# 也可以不用维护一个镜像仓库(MySpec) 直接指定推到组件库本身也可以 --sources可以指定多个源地址 用逗号隔开  使用镜像仓库的好处是 集成方便只引入一下 `source `镜像仓库源地址``即可 不用每个都指定地址 除非有同名不同源的库
+pod repo push xxxx xxx.podspec --sources='http://192.168.1.111/xxx.git,https://github.com/CocoaPods/Specs.git' --allow-warnings --use-libraries --verbose
 
 #Podfile集成使用时 就可以使用MySpec这个源了
 source "https://xxx.com/CoderWGB/WGBSpec.git" 
@@ -230,4 +232,8 @@ pod setup成功后，依然不能pod search，是因为之前你执行pod search
 输出：Creating search index for spec repo 'master'.. Done!，稍等片刻······就会出现所有带有afnetworking字段的类库。
 
 
+
+
+参考文章
+- [podspec | struggle](https://srv7.github.io/2021/05/19/podspec/#more)
 

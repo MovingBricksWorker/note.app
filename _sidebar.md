@@ -63,6 +63,7 @@
         
 
     * Python 
+        * [发送简单的邮箱文本信息](Python/发送简单的邮箱文本信息.md)
         * [PythonGUI打包Mac应用](Python/PythonGUI打包Mac应用.md)
         * [python相关博客文章](Python/README.md)
         * [easyGUI](Python/easyGUI.md)
