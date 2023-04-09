@@ -211,6 +211,39 @@ pod trunk push xxx.podspec  --allow-warnings
 
 
 
+#### 关于Xcode12 架构报错问题
+私库.podspc文件可以这样写
+```bash
+ s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+ s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+```
+Podfile里可以这样写
+```bash
+#兼容新版xcode `VALID_ARCHS`在高版本Xcode创建的项目里好像没有 可以使用`EXCLUDED_ARCHS`代替
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            #兼容新版Xcode
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+            config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
+            config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
+            config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+            config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+           if config.name == 'Debug'
+             config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+             config.build_settings['ARCHS'] = 'arm64 x86_64'
+             config.build_settings['VALID_ARCHS'] = 'arm64 x86_64'
+           else
+             config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+             config.build_settings['ARCHS'] = 'arm64'
+             config.build_settings['VALID_ARCHS'] = 'arm64'
+           end           
+        end
+    end
+end
+```
+
+
 
 
 #### CocoaPods: pod search 搜索类库失败的解决办法

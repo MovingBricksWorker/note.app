@@ -11,8 +11,7 @@
 - 作品 && Demo
   - [仿Alfred输入框](pages/Alfred.html ':ignore')
   - [ElementUI表格表单01](pages/ElementUIFormDemo001.html ':ignore')
-  - [ElementUI表格表单02](pages/ElementUIFormDemo002.html ':ignore')
-  - [ElementUI表格表单逐行校验](pages/ElementUIFormDemo003.html ':ignore')
+  - [ElementUI表格表单逐行校验](pages/ElementUIFormDemo002.html ':ignore')
 
 - 探索
   - [Mac](https://bytesfly.github.io/playground-macos/)
