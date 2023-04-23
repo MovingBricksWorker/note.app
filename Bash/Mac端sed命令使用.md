@@ -15,17 +15,18 @@ echo $lineNum
 ```bash
 sed -i "" "${lineNum}d" ./test.txt
 sed -i ".bak" "${lineNum}d" ./test.txt #会生成一个.bak备份文件 避免数据丢失
+sed -i "" "2,6d" ./test.txt #删除第2行到第6行  我一开始还以为是从第2行开始往下多删除6行呢
 ```
 
 插入指定行(这个插入Mac里只能使用单引号使用,但是单引号内无法引用变量`$x`,所以变量`$version`要在单引号外进行拼接)
 
 ```bash
 version=3.0.0
-sed -i "" ''${lineNum}'i\
+sed -i "" ${lineNum}'i\
     return @\"'${version}'\";//<- <# Version Replace Flag #> ->
      ' ./test.txt
 #或者
-sed -i ".bak" ''${lineNum}'i\
+sed -i ".bak" ${lineNum}'i\
     return @\"'${version}'\";//<- <# Version Replace Flag #> ->
      ' ./test.txt
 ```

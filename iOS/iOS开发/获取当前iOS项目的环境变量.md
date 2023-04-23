@@ -50,3 +50,22 @@ echo "生成成功!"
 open ./
 
 ```
+
+查看Xcode tagrget下的环境变量
+```
+xcodebuild -project ${PROJECT_NAME}.xcodeproj -target ${TARGET_NAME} -configuration ${CONFIGURATION} -showBuildSettings > xcodebuild_buildSettings.txt
+
+```
+
+
+Xcode的RunScript里区分真机和模拟器执行不同的shell脚本
+
+```bash
+if [ "$PLATFORM_NAME" = "iphonesimulator" ] ;
+then
+    echo "模拟器运行"
+else
+    echo "真机运行"
+fi
+```
+

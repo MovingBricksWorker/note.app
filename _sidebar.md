@@ -22,6 +22,7 @@
             * [:before和:after伪元素的使用](前端/CSS/before和after伪元素的使用.md)
             * [一行固定三个的布局](前端/CSS/一行固定三个的布局.md)
         * Vue
+            * [表单校验总结](前端/Vue/表单校验总结.md)
             * [实现双向绑定的坑](前端/Vue/实现双向绑定的坑.md)
             * [echarts相关知识点](前端/Vue/echarts相关知识点.md)
             * [父组件调用子组件方法](前端/Vue/父组件调用子组件方法.md)
@@ -35,6 +36,8 @@
             * [学习使用外部模块](前端/Node/学习使用外部模块.md)
             * [使用superagent与cheerio完成简单爬虫](前端/Node/使用superagent与cheerio完成简单爬虫.md)
             * [使用云函数实现国内可用的ChatGPT](前端/Node/使用云函数实现国内可用的ChatGPT.md)
+        * WebPack
+            * [解决url-loader导致图片加载不出来](前端/Webpack/解决url-loader导致图片加载不出来.md)
     
     * Mac
         * [Mac客户端开发Tips](Mac技巧/Mac客户端开发Tips.md)
@@ -60,6 +63,7 @@
         * [上传IPA到蒲公英](Bash/上传IPA到蒲公英.md)
         * [方便管理npm源的切换](Bash/方便管理npm源的切换.md)
         * [Mac获取本机IP](Bash/获取本机IP.md)
+        * [ffmpeg命令行的使用总结](Bash/ffmpeg命令行的使用总结.md)
         
 
     * Python 
@@ -93,6 +97,7 @@
 
     * iOS
         * iOS开发
+            * [苹果上架AppStore相关记录](iOS/iOS开发/苹果上架AppStore相关记录.md)
             * [我和ChatGPT的聊天记录](iOS/iOS开发/我和ChatGPT的聊天记录.md)
             * [OC发送钉钉消息到群里](iOS/iOS开发/OC发送钉钉消息到群里.md)
             * [fastlane重签IPA](iOS/iOS开发/fastlane重签IPA.md)
@@ -108,6 +113,7 @@
             * [iOS桌面书签解决方案](iOS/iOS开发/iOS桌面书签解决方案.md)
             * [webclicp桌面书签相关](iOS/iOS开发/webclicp桌面书签相关.md)
             * [导出白包和linkmap以及dsym堆栈符号化](iOS/iOS开发/导出白包和linkmap以及dsym堆栈符号化.md)
+            * [Pod本地库实践之区分微信SDK有无支付功能](iOS/iOS开发/Pod本地库实践之区分微信SDK有无支付功能.md)
         * [一些iOS面试题](iOS/README.md)
         * [iOS面试总结](iOS/iOS面试总结.md)
         * [2020年10月15日面试总结](iOS/2020年10月15日面试总结.md)

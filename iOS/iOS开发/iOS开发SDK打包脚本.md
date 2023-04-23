@@ -21,7 +21,7 @@ sh xcode_build_framework.sh "armv7,arm64"
 set -e
 
 ##SDK的名字
-SDK_NAME='MyAPM'
+SDK_NAME='LUAPM'
 #SDK产出目录
 INSTALL_DIR=${SRCROOT}/Products
 
@@ -36,15 +36,34 @@ echo "本次打包的CPU架构为: "${iphoneos_archs[*]}
 
 #执行真机编译指令 采用的是桌面上的xcode12版本 需要支持armv7  Xcode14苹果移除了armv7的支持
 #xcodebuild -configuration 'Release' -workspace "${PROJECT_NAME}.xcworkspace" -scheme "${SDK_NAME}" -sdk iphoneos  build ARCHS="${iphoneos_archs[*]}" 
-~/Desktop/Xcode.app/Contents/Developer/usr/bin/xcodebuild -configuration 'Release' -workspace "${SDK_NAME}.xcworkspace" -scheme "${SDK_NAME}" -sdk iphoneos  build ARCHS="${iphoneos_archs[*]}" SYMROOT="${INSTALL_DIR}" -UseModernBuildSystem=NO
+~/Desktop/MacTools/Xcode.app/Contents/Developer/usr/bin/xcodebuild -configuration 'Release' -workspace "${SDK_NAME}.xcworkspace" -scheme "${SDK_NAME}" -sdk iphoneos  build ARCHS="${iphoneos_archs[*]}" SYMROOT="${INSTALL_DIR}" -UseModernBuildSystem=NO
+echo "真机编译完成..."
+
+#编译模拟器版本 
+~/Desktop/MacTools/Xcode.app/Contents/Developer/usr/bin/xcodebuild -configuration 'Release' -workspace LUAPM.xcworkspace -scheme LUAPM -sdk iphonesimulator build ARCHS="x86_64" SYMROOT="${INSTALL_DIR}" -UseModernBuildSystem=NO
+echo "模拟器编译完成..."
+
+#合并真机和模拟器的framework生成一个XCFramework
+~/Desktop/MacTools/Xcode.app/Contents/Developer/usr/bin/xcodebuild -create-xcframework -framework ${INSTALL_DIR}/Release-iphonesimulator/${SDK_NAME}.framework  -framework ${INSTALL_DIR}/Release-iphoneos/${SDK_NAME}.framework -output  ${INSTALL_DIR}/${SDK_NAME}.xcframework 
+
+#合并产物为一个Framework
+SimSDKDIR="${INSTALL_DIR}/Release-iphonesimulator/${SDK_NAME}.framework/${SDK_NAME}"
+SDKTargetDIR="${INSTALL_DIR}/Release-iphoneos/${SDK_NAME}.framework/${SDK_NAME}"
+lipo -create "${SimSDKDIR}"  "${SDKTargetDIR}" -output "${SDKTargetDIR}"
+
 #调整目录
 rm -rf ${INSTALL_DIR}/Release-iphoneos/${SDK_NAME}.framework/_CodeSignature
 cp -R  ${INSTALL_DIR}/Release-iphoneos/${SDK_NAME}.framework  ${SRCROOT}/
+cp -R ${INSTALL_DIR}/${SDK_NAME}.xcframework ${SRCROOT}/
 rm -rf ${INSTALL_DIR}
 
 #编译完自动替换demo里的SDK并打开demo工程
-cp -Rf  ${SRCROOT}/${SDK_NAME}.framework/  ../MyAPMDemo/MyAPMDemo/SDKs/MyAPM.framework/ 
-open ../MyAPMDemo/*.xcworkspace
+cp -Rf  ${SRCROOT}/${SDK_NAME}.framework/  ../LUAPMDemo/LUAPMDemo/SDKs/LUAPM.framework/
+#同步依赖到热修复库
+cp -Rf  ${SRCROOT}/${SDK_NAME}.framework  ~/Desktop/luhotfix_ios/OCRunnerDemo/OCRunnerDemo/LUAPM.framework
+cp -Rf  ${SRCROOT}/${SDK_NAME}.framework  ~/Desktop/luhotfix_ios/LUOCRunner/LUOCRunner/LUAPM.framework
+
+open ../LUAPMDemo/*.xcworkspace
 
 echo "脚本跑🏃完了 [ DONE ]"
 exit 0;
@@ -162,7 +181,7 @@ exit 0;
 ```
 
 
-剔除项目中多余架构的脚本,编译加一个RunScript即可
+##### 剔除项目中多余架构的脚本,编译加一个RunScript即可
 ```bash
 #!/bin/sh
 
@@ -202,3 +221,33 @@ strip_invalid_archs "$FRAMEWORK_EXECUTABLE_PATH"
 done
 
 ```
+
+##### 打包XCFramework
+
+```bash
+#问了GPT: 请帮忙编写一条Xcode SDK打包XCFramework的shell脚本
+
+#!/bin/sh
+
+# 设置变量
+PROJECT_NAME="YourProjectName"
+FRAMEWORK_NAME="YourFrameworkName"
+XCFRAMEWORK_NAME="$FRAMEWORK_NAME.xcframework"
+
+# 清理并构建工程
+xcodebuild clean build -project $PROJECT_NAME.xcodeproj -scheme $FRAMEWORK_NAME -destination generic/platform=iOS -configuration Release
+
+# 创建XCFramework
+xcodebuild -create-xcframework \
+-framework "$PROJECT_NAME/build/Release-iphoneos/$FRAMEWORK_NAME.framework" \
+-framework "$PROJECT_NAME/build/Release-iphonesimulator/$FRAMEWORK_NAME.framework" \
+-output "$PROJECT_NAME/build/$XCFRAMEWORK_NAME"
+
+```
+?> 解释：
+
+>[!NOTE]
+>PROJECT_NAME：项目名称
+>FRAMEWORK_NAME：要打包的Framework名称
+>XCFRAMEWORK_NAME：输出的XCFramework名称
+>脚本的第一部分清理并构建工程，使用-destination参数指定构建的目标设备为iOS。第二部分使用xcodebuild命令创建XCFramework。在创建XCFramework时，需要指定要包含的iPhoneOS和iPhoneSimulator版本的Framework。最后，输出的XCFramework将保存在$PROJECT_NAME/build目录下。

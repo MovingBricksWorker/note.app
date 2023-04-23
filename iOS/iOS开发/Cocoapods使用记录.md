@@ -29,7 +29,8 @@ WGBToolKit就是一个工具类库,封装了一些常用的工具,为了快速�
   #s.prefix_header_file = 'WGBToolKit/WGBToolKit.h'
   s.source_files = 'WGBToolKit/WGBToolKit.h' #配置个头文件 统一入口引入 
   s.frameworks = 'UIKit', 'Foundation' #基础系统库
-
+  s.default_subspecs = ['UIKit','Foundation'] #指定默认安装这两个子模块
+  #s.default_subspec = 'DebugTool' #指定默认安装的一个子模块
 
   s.subspec 'DebugTool' do |ss|
    #分子模块可以按需安装 不必把整个库集成进去

@@ -158,22 +158,71 @@ tmpPath="/tmp/"$time
 echo $tmpPath
 mkdir -p  $tmpPath
 #拉取代码 使用ssh 无需输入账号密码 
-git clone git@e.coding.net:jutongtech/akyuyin/aklive_protocol.git  $tmpPath
+git clone -b release_ready git@e.coding.net:jutongtech/akyuyin/aklive_protocol.git  $tmpPath
 #进入目录
 cd $tmpPath
 ls 
 mkdir objc_out
+cd objc_out
+mkdir plugin_pb
+mkdir pb
+mkdir client
+mkdir uauth_pb
+cd ..
 
 cd proto
 
-#修复目录
-cp -Rf ./_client_pb ./client
-cp -Rf ../only_client/* ./client/
-mv ./mods/misc/mars.ext.proto1 ./mods/misc/mars.ext.proto
-mv ./mods/misc/rpcMessage.ext.proto1 ./mods/misc/rpcMessage.ext.proto
-mv ./mods/misc/goimPush.int.proto1  ./mods/misc/goimPush.int.proto
+cp -Rf plugin_pb/community.ext.proto    ../objc_out/plugin_pb/community.ext.proto
+cp -Rf plugin_pb/phome.ext.proto    ../objc_out/plugin_pb/phome.ext.proto
+cp -Rf plugin_pb/plugin.ext.proto    ../objc_out/plugin_pb/plugin.ext.proto
 
-#把pb文件都转移到proto目录下 然后遍历proto目录下的所有.proto文件
+cp -Rf pb/crack_egg.ext.proto    ../objc_out/pb/crack_egg.ext.proto
+cp -Rf pb/store.ext.proto    ../objc_out/pb/store.ext.proto
+
+cp -Rf ../only_client/base_dynconfig.ext.proto   ../objc_out/client/base_dynconfig.ext.proto
+cp -Rf ../only_client/local_customize.ext.proto   ../objc_out/client/local_customize.ext.proto
+
+
+cp -Rf ../only_client/bridge.ext.proto   ../objc_out/client/bridge.ext.proto
+cp -Rf _client_pb/common.proto   ../objc_out/client/common.proto
+cp -Rf ../only_client/logic.proto   ../objc_out/client/logic.proto
+
+
+cp -Rf ../only_client/rpcMessgage.ext.proto   ../objc_out/client/rpcMessgage.ext.proto
+cp -Rf _goim_pb/lib_mars.ext.proto   ../objc_out/pb/mars.ext.proto
+cp -Rf uauth_pb/uauth_common.proto   ../objc_out/uauth_pb/uauth_common.proto
+
+cp -Rf uauth_pb/uauth.ext.proto   ../objc_out/uauth_pb/uauth.ext.proto
+
+cp -Rf pb/activity.ext.proto   ../objc_out/pb/activity.ext.proto
+cp -Rf pb/activity_common.proto   ../objc_out/pb/activity_common.proto
+cp -Rf pb/assets.ext.proto   ../objc_out/pb/assets.ext.proto
+cp -Rf pb/bill.ext.proto   ../objc_out/pb/bill.ext.proto
+cp -Rf pb/blinddate.ext.proto   ../objc_out/pb/blinddate.ext.proto
+cp -Rf pb/nobility.ext.proto   ../objc_out/pb/nobility.ext.proto
+cp -Rf pb/common.ext.proto   ../objc_out/pb/common.ext.proto
+cp -Rf pb/friend.ext.proto   ../objc_out/pb/friend.ext.proto
+cp -Rf pb/gift.ext.proto   ../objc_out/pb/gift.ext.proto
+cp -Rf pb/index.ext.proto   ../objc_out/pb/index.ext.proto
+cp -Rf pb/play.ext.proto   ../objc_out/pb/play.ext.proto
+cp -Rf pb/red_envelope.ext.proto   ../objc_out/pb/red_envelope.ext.proto
+cp -Rf pb/room.ext.proto   ../objc_out/pb/room.ext.proto
+cp -Rf pb/system.ext.proto   ../objc_out/pb/system.ext.proto
+cp -Rf pb/user.ext.proto   ../objc_out/pb/user.ext.proto
+cp -Rf pb/user_status.ext.proto   ../objc_out/pb/user_status.ext.proto
+cp -Rf pb/room_pk.ext.proto   ../objc_out/pb/room_pk.ext.proto
+cp -Rf pb/reporter.ext.proto  ../objc_out/pb/reporter.ext.proto
+
+cp -Rf upgrade_pb/upgrade.ext.proto   ../objc_out/client/upgrade.ext.proto
+
+cp -Rf pb/game.ext.proto   ../objc_out/pb/game.ext.proto
+cp -Rf pb/rocket.ext.proto   ../objc_out/pb/rocket.ext.proto
+cp -Rf pb/rocket.int.proto   ../objc_out/pb/rocket.int.proto
+cp -Rf ../only_client/flutter.proto   ../objc_out/client/flutter.proto
+
+cd .. 
+mkdir protoOC
+#把pb文件都转移到objc_out目录下 然后遍历objc_out目录下的所有.proto文件
 function getdir(){
     for element in `ls $1`
     do  
@@ -189,20 +238,23 @@ function getdir(){
 }
 
 pbs=()
-cd ..
-root_dir="proto"
+root_dir="objc_out"
 getdir $root_dir
 echo "PB文件数量为: "${#pbs[@]} 
-cd proto
+cd objc_out
 
-#遍历生成OC文件
+#遍历生成OC文件 存放到protoOC目录下 生成之后将项目里的替换
 for pbFile in ${pbs[*]}; do
-   protoc -I=. --objc_out=../objc_out  $pbFile
+   protoc -I=. --objc_out=../protoOC  $pbFile
 done
 
-cd .. 
+# #移除子目录或者文件
+# rm -rf ~/Desktop/alive-ios/aklive/protoOC/*
+# #替换项目里的文件
+# mv  -f ../protoOC/*  ~/Desktop/alive-ios/aklive/protoOC
 # 输出看看先
-mv -f ./objc_out/*  ~/Desktop/alive-ios/protoOC
+mv  -f ../protoOC  ~/Desktop/alive-ios/
+rm -rf $tmpPath
 
 echo "\033[1;32m 拉取完成 [DONE]\033[m"
 
