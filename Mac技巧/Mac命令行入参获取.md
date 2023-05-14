@@ -48,3 +48,5 @@ int main(int argc, const char * argv[]) {
 }
 
 ```
+还有这个类的属性也可以获取到
+[NSProcessInfo procrsss].argmuents

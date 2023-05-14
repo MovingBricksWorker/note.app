@@ -36,3 +36,4 @@
 - [iOS 基础+音视频 | SamirChen](http://www.samirchen.com/ios-index/)
 - [TODO saitjr](http://www.saitjr.com)
 - [Coder: 猿，改变世界的动物！](http://www.alonemonkey.com/)
+- [iOS包大小优化分析工具 WBBlades ](https://github.com/wuba/WBBlades)
