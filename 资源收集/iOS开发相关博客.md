@@ -37,3 +37,7 @@
 - [TODO saitjr](http://www.saitjr.com)
 - [Coder: 猿，改变世界的动物！](http://www.alonemonkey.com/)
 - [iOS包大小优化分析工具 WBBlades ](https://github.com/wuba/WBBlades)
+- [David'Blog](https://hello-david.github.io)
+- [objchris](https://objchris.com)
+- [孙亚洲的博客](https://www.sunyazhou.com/)
+- [tbfungeek](https://tbfungeek.github.io/archives/)

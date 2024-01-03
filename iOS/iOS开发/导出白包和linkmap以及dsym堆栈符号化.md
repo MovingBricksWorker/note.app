@@ -60,6 +60,16 @@ open ~/Desktop
  
 -[ViewController touchesBegan:withEvent:] (in xxx-Demo) (ViewController.m:79)
 ```
+来自大厂们的精彩分享: 
+
+- [腾讯云-iOS崩溃堆栈符号化，定位问题分分钟搞定！](https://cloud.tencent.com/developer/article/1070400)
+
+- [百度iOS 崩溃日志在线符号化实践](https://juejin.cn/post/7024000881532076063)
+
+- [有赞crash平台符号化实践](https://tech.youzan.com/you-zan-crashping-tai-fu-hao-hua-shi-jian/)
+
+  
+ 我看了大厂分享的文章,逼格都比较高,要图有图,要数据有数据的,就是有点不接地气,具体实操主要还是参考`CoderStar`大佬的 [iOS 符号化浅析 - CoderStar](https://juejin.cn/post/7015864160432947207) 文章来吧
 
 
 

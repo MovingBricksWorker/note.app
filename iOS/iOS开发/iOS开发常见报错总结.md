@@ -27,3 +27,13 @@ end
 > [!NOTE]
 > 解决办法:  检查头文件是否.h变成了.m 写错了 或者 看看有没有这个文件或者这个方法
 > 点开编译堆栈看看 上一次c的一个函数和宿主App写的一样也报这个错~
+
+4. iOS集成flutter module `Multiple commands produce xxxxx`
+
+> 可能是之前的静态库未清理干净 造成了冲突
+
+```objc
+pod deintegrate
+pod install
+
+```
